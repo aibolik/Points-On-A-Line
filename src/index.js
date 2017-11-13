@@ -1,6 +1,7 @@
 module.exports = function isPointsOnLine(points) {
   // Solution comes from counting Area by cartesian product
   // If area is equal to 0, then all points lie on a single line.
+  if (points.length === 1)
   if (points.length <= 2) return true;
 
   var area = 0;
@@ -11,5 +12,5 @@ module.exports = function isPointsOnLine(points) {
   area += points[points.length - 1][0] * points[0][1] - points[points.length - 1][1] * points[0][0];
   area = Math.abs(area / 2);
 
-  return area === 0;
+  return !(area > 0);
 }
